@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/courses" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" />
+  <label>Location:</label>
+  <input type="text" name="location" />
+  <label>Credit</label>
+  <select name="credit">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <input type="submit" value="Add Class" />
+</form>
+
+<%- include('../partials/footer') %>

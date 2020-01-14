@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Title:</div>
+  <div><%= course.title %></div>
+  <div>Location:</div>
+  <div><%= course.location %></div>
+  <div>Credit:</div>
+  <div><%= course.credit %></div>
+  <div>Attendance:</div>
+  <ul>
+    <%- course.attendance.map(p => `
+    <li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>
+    ` ).join('') %>
+  </ul>
+</section>
+<form
+  id="add-per-to-attend"
+  action="/courses/<%= course._id%>/students"
+  method="POST"
+>
+  <select name="studentId">
+    <%- students.map(p => `<option value="${p._id}">${p.name}</option
+    >` ).join('') %>
+  </select>
+  <button type="submit">Add to Attend</button>
+</form>
+
+<% } %> <%- include('../partials/footer') %>
