@@ -14,6 +14,13 @@ const courseSchema = new Schema({
     type: Number,
     required: true
   },
+  description: {
+    type: String,
+    required: true
+  },
+  point: {
+    type: Number
+  },
   attendance: [{ type: Schema.Types.ObjectId, ref: 'Student' }]
 });
 
