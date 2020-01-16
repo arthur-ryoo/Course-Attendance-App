@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const port = process.env.PORT || 3000;
+const methodOverride = require('method-override');
 
 require('dotenv').config();
 
@@ -18,6 +19,7 @@ const coursesRoutes = require('./routes/courses');
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +36,7 @@ app.use(passport.session());
 app.use('/', indexRoutes);
 app.use('/courses', coursesRoutes);
 app.use('/', studentsRoutes);
+app.use('/students', studentsRoutes);
 
 app.listen(port, () => {
   console.log(`Express is listening on port:${port}`);
