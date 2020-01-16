@@ -4,12 +4,26 @@ module.exports = {
   index,
   show,
   new: newCourse,
-  create
+  create,
+  delete: newDelete
 };
+
+function newDelete(req, res) {
+  Course.deleteOne({ _id: req.params.id }, function(err) {
+    if (err) console.log(err);
+    console.log('Delete successful');
+  });
+  res.redirect('/courses/');
+}
 
 function index(req, res) {
   Course.find({}, function(err, courses) {
-    res.render('courses/index', { title: 'All Courses', courses });
+    console.log(courses);
+    res.render('courses/index', {
+      title: 'All Courses',
+      courses,
+      user: req.user
+    });
   });
 }
 
@@ -17,10 +31,10 @@ function show(req, res) {
   Course.findById(req.params.id)
     .populate('attendance')
     .exec(function(err, course) {
-      Student.find({ _id: { $nin: course.attend } }, function(err, student) {
+      Student.find({ _id: { $nin: course.attend } }, function(err, students) {
         res.render('courses/show', {
           title: 'Course Detail',
-          course,
+          courses,
           students
         });
       });
@@ -37,7 +51,10 @@ function create(req, res) {
   }
   const course = new Course(req.body);
   course.save(function(err) {
-    if (err) return res.redirect('/courses/new');
+    if (err) {
+      console.log(err);
+      return res.redirect('/courses/new');
+    }
     res.redirect(`/courses/${course._id}`);
   });
 }

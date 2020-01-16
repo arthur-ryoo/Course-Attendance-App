@@ -19,10 +19,38 @@ function create(req, res) {
 }
 
 function addToAttend(req, res) {
+  Student.findById(req.body.studentId, function(err, student) {
+    student.total_point++;
+    student.save(function(err) {
+      console.log(err);
+    });
+    console.log(student);
+  });
+  //*********************
   Course.findById(req.params.id, function(err, course) {
-    course.cast.push(req.body.performerId);
+    course.attendance.push(req.body.studentId);
     course.save(function(err) {
       res.redirect(`/courses/${course.id}`);
+    });
+  });
+}
+
+function index(req, res) {
+  Student.find({}, function(err, students) {
+    res.render('students/index', {
+      title: 'All Students',
+      students,
+      user: req.user
+    });
+  });
+}
+
+function show(req, res) {
+  Student.find({}, function(err, students) {
+    console.log(students);
+    res.render('students/show', {
+      title: 'Student Detail',
+      students
     });
   });
 }
@@ -30,5 +58,7 @@ function addToAttend(req, res) {
 module.exports = {
   new: newStudent,
   create,
-  addToAttend
+  addToAttend,
+  index,
+  show
 };

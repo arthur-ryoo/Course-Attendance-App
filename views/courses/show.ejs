@@ -2,15 +2,17 @@
 
 <section id="show-page">
   <div>Title:</div>
-  <div><%= course.title %></div>
+  <div><%= courses.title %></div>
   <div>Location:</div>
-  <div><%= course.location %></div>
+  <div><%= courses.location %></div>
   <div>Credit:</div>
-  <div><%= course.credit %></div>
+  <div><%= courses.credit %></div>
   <div>Attendance:</div>
   <ul>
-    <%- course.attendance.map(p => `
-    <li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>
+    <%- courses.attendance.map(s => `
+    <li>
+      ${s.name} | ${s.year} | <small>${s.born.toLocaleDateString()}</small>
+    </li>
     ` ).join('') %>
   </ul>
 </section>
@@ -20,10 +22,10 @@
   method="POST"
 >
   <select name="studentId">
-    <%- students.map(p => `<option value="${p._id}">${p.name}</option
+    <%- students.map(s => `<option value="${s._id}">${s.name}</option
     >` ).join('') %>
   </select>
   <button type="submit">Add to Attend</button>
 </form>
 
-<% } %> <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

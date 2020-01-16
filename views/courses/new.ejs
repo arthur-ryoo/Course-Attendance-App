@@ -2,9 +2,11 @@
 
 <form id="new-form" action="/courses" method="POST">
   <label>Title:</label>
-  <input type="text" name="title" />
+  <input type="text" name="title" autocomplete="off" />
+  <label>Description:</label>
+  <input type="text" name="description" autocomplete="off" />
   <label>Location:</label>
-  <input type="text" name="location" />
+  <input type="text" name="location" autocomplete="off" />
   <label>Credit</label>
   <select name="credit">
     <option value="1">1</option>

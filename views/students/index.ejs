@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>DOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% students.forEach(function(s) { %>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= s.year %></td>
+      <td><%= s.born.toLocaleDateString() %></td>
+      <td><a href="/students/<%= s._id %>">Details</a></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

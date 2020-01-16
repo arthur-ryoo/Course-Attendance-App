@@ -9,8 +9,15 @@
 </p>
 <form id="add-student-form" action="/students" method="POST">
   <label>Name:</label>
-  <input type="text" name="name" />
-  <label>Born:</label>
+  <input type="text" name="name" autocomplete="off" />
+  <label>Year</label>
+  <select name="year">
+    <option value="Freshman">Freshman</option>
+    <option value="Sophomore">Sophomore</option>
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+  </select>
+  <label>DOB:</label>
   <input type="date" name="born" />
   <input type="submit" value="Add Student" />
 </form>

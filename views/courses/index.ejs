@@ -4,15 +4,25 @@
     <tr>
       <th>Title</th>
       <th>Location</th>
-      <th></th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
-    <% courses.forEach(function(m) { %>
+    <% courses.forEach(function(c) { %>
     <tr>
-      <td><%= m.title %></td>
-      <td><%= m.location %></td>
-      <td><a href="/courses/<%= m._id %>">Details</a></td>
+      <td><%= c.title %></td>
+      <td><%= c.location %></td>
+      <td><%= c.description %></td>
+      <td><a href="/courses/<%= c._id %>">Details</a></td>
+      <td>
+        <form
+          action="/courses/<%= c._id %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </td>
     </tr>
     <% }); %>
   </tbody>
