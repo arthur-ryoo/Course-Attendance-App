@@ -20,11 +20,10 @@ function create(req, res) {
 
 function addToAttend(req, res) {
   Student.findById(req.body.studentId, function(err, student) {
-    student.total_point++;
+    student.total_points++;
     student.save(function(err) {
       console.log(err);
     });
-    console.log(student);
   });
   //*********************
   Course.findById(req.params.id, function(err, course) {
@@ -46,11 +45,10 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Student.find({}, function(err, students) {
-    console.log(students);
+  Student.findById(req.params.id, function(err, student) {
     res.render('students/show', {
       title: 'Student Detail',
-      students
+      student
     });
   });
 }
