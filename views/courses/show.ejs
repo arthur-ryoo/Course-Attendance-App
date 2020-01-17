@@ -2,14 +2,14 @@
 
 <section id="show-page">
   <div>Title:</div>
-  <div><%= courses.title %></div>
+  <div><%= course.title %></div>
   <div>Location:</div>
-  <div><%= courses.location %></div>
+  <div><%= course.location %></div>
   <div>Credit:</div>
-  <div><%= courses.credit %></div>
+  <div><%= course.credit %></div>
   <div>Attendance:</div>
   <ul>
-    <%- courses.attendance.map(s => `
+    <%- course.attendance.map(s => `
     <li>
       ${s.name} | ${s.year} | <small>${s.born.toLocaleDateString()}</small>
     </li>
