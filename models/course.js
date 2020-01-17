@@ -18,10 +18,11 @@ const courseSchema = new Schema({
     type: String,
     required: true
   },
-  point: {
-    type: Number
-  },
-  attendance: [{ type: Schema.Types.ObjectId, ref: 'Student' }]
+  attendance: [{ type: Schema.Types.ObjectId, ref: 'Student' }],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 module.exports = mongoose.model('Course', courseSchema);
