@@ -17,8 +17,8 @@ function newDelete(req, res) {
 }
 
 function index(req, res) {
-  Course.find({}, function(err, courses) {
-    console.log(courses);
+  Course.find({}, function(err, allCourses) {
+    let courses = allCourses.filter(c => c.user == req.user.id);
     res.render('courses/index', {
       title: 'All Courses',
       courses,
@@ -31,10 +31,11 @@ function show(req, res) {
   Course.findById(req.params.id)
     .populate('attendance')
     .exec(function(err, course) {
+      console.log(course);
       Student.find({ _id: { $nin: course.attend } }, function(err, students) {
         res.render('courses/show', {
           title: 'Course Detail',
-          courses,
+          course,
           students
         });
       });
@@ -49,7 +50,13 @@ function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
-  const course = new Course(req.body);
+  let course = new Course();
+  course.title = req.body.title;
+  course.location = req.body.location;
+  course.credit = req.body.credit;
+  course.description = req.body.description;
+  course.user = req.user;
+  // const course = new Course(req.body);
   course.save(function(err) {
     if (err) {
       console.log(err);
