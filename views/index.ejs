@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Course Attendance App</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="navbar">
       <nav>
         <div class="nav">
-          <a href="/" class="brand-logo left">Course Attendance App</a>
-          <ul class="right">
+          <!-- <a href="/" class="home-link">Course Attendance App</a> -->
+          <ul>
             <li>
               <% if (user) { %>
               <a href="/courses"><i class=""></i>All Courses</a>
@@ -22,8 +31,9 @@
         </div>
       </nav>
     </div>
-    <header class="container">
+    <header class="main-title">
       <h2>Welcome to Course Attendance App</h2>
+      <p>Please Sign in to Continue</p>
     </header>
   </body>
 </html>

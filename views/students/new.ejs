@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 <p>
-  Please first ensure that the Student is not in the dropdown
+  Student List
   <select>
     <% students.forEach(function(s) { %>
     <option><%= s.name %></option>
     <% }) %>
   </select>
 </p>
-<form id="add-student-form" action="/students" method="POST">
+<form id="new-form" action="/students" method="POST">
   <label>Name:</label>
   <input type="text" name="name" autocomplete="off" />
-  <label>Year</label>
+  <label>Year:</label>
   <select name="year">
     <option value="Freshman">Freshman</option>
     <option value="Sophomore">Sophomore</option>

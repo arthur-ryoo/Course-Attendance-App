@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+<form
+  id="new-form"
+  action="/courses/<%= course.id %>?_method=PUT"
+  method="POST"
+>
+  <label>Title:</label>
+  <input
+    type="text"
+    name="title"
+    value="<%= course.title %>"
+    autocomplete="off"
+  />
+  <label>Description:</label>
+  <input
+    type="text"
+    name="description"
+    value="<%= course.description %>"
+    autocomplete="off"
+  />
+  <label>Location:</label>
+  <input
+    type="text"
+    name="location"
+    value="<%= course.location %>"
+    autocomplete="off"
+  />
+  <label>Credit</label>
+  <select name="credit">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <a href="/courses" id="cancel-button">Cancel</a>
+  <button type="submit">Update</button>
+</form>
+
+<%- include('../partials/footer') %>
