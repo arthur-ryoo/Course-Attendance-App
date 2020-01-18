@@ -1,7 +1,7 @@
 # Course-Attendance-App
 
-<img src="images/Image1.png" width="100">
-![](images/Image2.png)
+<img src="public/images/Image1.png" width="100">
+![](public/images/Image2.png)
 
 # Technologies Used
 
@@ -21,6 +21,6 @@
 
 # Next Steps
 
-*A user should be able to click on an individual student and leave a comment.
-*A user should be able to use a fully functional points-based attendance system.
-\*A user should be able to see each individual attendance rate.
+* A user should be able to click on an individual student and leave a comment.
+* A user should be able to use a fully functional points-based attendance system.
+* A user should be able to see each individual attendance rate.
