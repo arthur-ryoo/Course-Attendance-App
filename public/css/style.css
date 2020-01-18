@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
+  font-family: 'Roboto', sans-serif;
   color: #424748;
 }
 
@@ -14,9 +14,10 @@ body {
     'main';
 }
 
-body > nav {
+body > nav,
+body > .navbar {
   grid-area: nav;
-  background-color: #b8c0c2;
+  background-color: #3f72af;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -29,12 +30,13 @@ nav > img {
   margin-right: auto;
 }
 
-body > main {
+body > main,
+.main-title {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e8eceb;
+  background-color: #f9f7f7;
   padding: 20px;
   overflow-y: scroll;
 }
@@ -43,7 +45,8 @@ body > main h1:first-child {
   margin-bottom: 50px;
 }
 
-nav > a {
+nav > a,
+li > a {
   margin: 20px;
   text-decoration: none;
   padding: 10px;
@@ -52,7 +55,7 @@ nav > a {
 
 nav > a:hover {
   color: white;
-  background-color: #424748;
+  background-color: #dbe2ef;
 }
 
 nav > a.active {
@@ -62,12 +65,10 @@ nav > a.active {
 #new-form {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  grid-template-columns: repeat(2, minmax(auto, 12rem));
 }
 
-#new-form *,
-#add-review-form *,
-#add-performer-form * {
+#new-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
@@ -85,7 +86,7 @@ table {
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 2px solid #112d4e;
 }
 
 table td {
@@ -93,45 +94,36 @@ table td {
   text-align: center;
 }
 
+#list {
+  background-color: #dbe2ef;
+}
+
 #list td:nth-child(2),
 #list td:nth-child(3) {
   min-width: 100px;
 }
 
-#list a {
+#list a,
+#list button {
   border-radius: 4px;
-  background-color: #b8c0c2;
+  background-color: #739bcc;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
 }
 
 #list a:hover {
-  background-color: white;
+  background-color: #a0b5dd;
 }
 
 #show-page {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
 
 #show-page div:nth-child(even) {
   font-weight: bold;
-}
-
-#add-review-form,
-#add-performer-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-#add-review-form input[type='submit'],
-#add-performer-form input[type='submit'] {
-  width: 10rem;
-  grid-column: 2 / 3;
 }
 
 ul {
