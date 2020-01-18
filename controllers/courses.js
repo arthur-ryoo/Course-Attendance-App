@@ -1,12 +1,5 @@
 const Course = require('../models/course');
 const Student = require('../models/student');
-module.exports = {
-  index,
-  show,
-  new: newCourse,
-  create,
-  delete: newDelete
-};
 
 function newDelete(req, res) {
   Course.deleteOne({ _id: req.params.id }, function(err) {
@@ -46,6 +39,15 @@ function newCourse(req, res) {
   res.render('courses/new', { title: 'Add Course' });
 }
 
+function edit(req, res) {
+  Course.findById(req.params.id).exec(function(err, course) {
+    res.render('courses/edit', {
+      title: 'Edit Course',
+      course
+    });
+  });
+}
+
 function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
@@ -56,7 +58,7 @@ function create(req, res) {
   course.credit = req.body.credit;
   course.description = req.body.description;
   course.user = req.user;
-  // const course = new Course(req.body);
+
   course.save(function(err) {
     if (err) {
       console.log(err);
@@ -65,3 +67,31 @@ function create(req, res) {
     res.redirect(`/courses/${course._id}`);
   });
 }
+
+function update(req, res) {
+  Course.findOne({ _id: req.params.id }, function(err, course) {
+    if (course) {
+      course.title = req.body.title;
+      course.location = req.body.location;
+      course.credit = req.body.credit;
+      course.description = req.body.description;
+      course.save(function(err) {
+        if (err) {
+          console.log(err);
+          return res.redirect('/courses');
+        }
+        res.redirect('/courses');
+      });
+    }
+  });
+}
+
+module.exports = {
+  index,
+  show,
+  new: newCourse,
+  create,
+  delete: newDelete,
+  edit,
+  update
+};

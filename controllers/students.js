@@ -4,7 +4,7 @@ const Course = require('../models/course');
 function newStudent(req, res) {
   Student.find({}, function(err, students) {
     res.render('students/new', {
-      title: 'Add student',
+      title: 'Add Student',
       students
     });
   });
