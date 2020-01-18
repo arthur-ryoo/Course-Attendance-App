@@ -1,4 +1,7 @@
-# Course-Attendance-App
+# Course Attendance App
+The Course Attendance App is a CRUD web application and a useful tool for instructors to manage student attendance.
+
+# Screenshots
 
 ![](public/images/Image1.png)
 
