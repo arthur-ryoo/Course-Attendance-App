@@ -1,7 +1,10 @@
 # Course-Attendance-App
 
-<img src="public/images/Image1.png" width="100">
+![](public/images/Image1.png)
+
 ![](public/images/Image2.png)
+
+![](public/images/Image3.png)
 
 # Technologies Used
 
